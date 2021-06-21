@@ -1,0 +1,13 @@
+{% extends './base.html' %} 
+
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ image }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.name }}</h5>
+      <p class="card-text">Membership Type: {{ user.membership_type }}</p>
+    </div>
+</div>
+{% endblock %}

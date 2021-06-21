@@ -1,0 +1,36 @@
+{% extends './base.html' %} 
+
+{% block title %} Membership {% endblock title %}
+
+{% block content %}
+	{% include './includes/navigation.html' %}
+
+    <div class="container mt-8">  
+        {% include './includes/messages.html' %}
+        <div class="dflex justify-content-center">
+            <h1 class="display1 text-white">Pricing</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+            {% for price in prices %} 
+                <div class="card text-center m-2">
+                    <div class="card-header">
+                        {{price.title}}
+                    </div>
+                    <div class="card-body" style="height: 150px;">
+                        <h5 class="card-title">&#8377; {{price.value}} / <small class="text-muted">yr</small></h5>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            {% for benifit in price.benifits %} 
+                                <li>{{benifit}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <a type="button" class="btn btn-block btn-primary mb-3" href="/payment/{{ price.title }}">Join Now</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div> 
+    </div>
+
+{% endblock %}

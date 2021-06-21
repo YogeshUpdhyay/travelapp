@@ -1,0 +1,29 @@
+{% extends './base.html' %} 
+
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+	{% include './includes/navigation.html' %}
+	<div class="container mt-7">
+		{% include './includes/messages.html' %}
+
+        <div class="container">
+            {% for event in page.items %} 
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ event.image }}" alt="Card Image">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ event.title }}</h5>
+                        <p class="card-text">{{ event.description }}</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>	
+
+	</div>
+{% endblock %}

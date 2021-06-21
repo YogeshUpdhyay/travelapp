@@ -1,0 +1,11 @@
+app
+static
+templates
+.dockerignore
+.gitignore
+config.py
+docker-compose.yml
+Dockerfile
+README.md
+requirements.txt
+run.py

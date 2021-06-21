@@ -1,0 +1,82 @@
+{% extends './base.html' %} 
+
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+	{% include './includes/navigation.html' %}
+	<div class="container mt-7">
+		{% include './includes/messages.html' %}
+
+		<div class="container" style="width: inherit;">
+			<div class="card bg-dark text-white">
+				<video src="/static/img/backdrop.mp4" autoplay></video>
+			</div>
+		</div>
+		
+		<div class="container mt-2">
+			<div class="row">
+				<h2 class="ml-4 text-white">Events</h2>
+			</div>
+			<div class="d-flex justify-content-around mt-2">
+				{% for event in events %}
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{{ event.image }}" alt="Card image cap">
+						<div class="card-body">
+						<h5 class="card-title">{{ event.title }}</h5>
+						<p class="card-text">{{ event.description }}</p>
+						<a href="/joinevent/{{event.id}}" class="btn btn-primary">Join</a>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+		<div class="container mt-2">
+			<div class="row">
+				<h2 class="ml-4 text-white">Feed</h2>
+			</div>
+			<div class="d-flex justify-content-around mt-2">
+				{% for feed in feeds %}
+					<div class="card" style="width: 18rem;">
+						<img class="card-img-top" src="{{ feed.image }}" alt="Card image cap">
+						<div class="card-body">
+						<h5 class="card-title">{{ feed.title }}</h5>
+						<p class="card-text">{{ feed.description }}</p>
+						<button type="button" class="btn btn-block btn-primary mb-3" data-toggle="modal" data-target="#modal-default">Share</button>
+						<div class="modal fade" id="modal-default" tabindex="-1" role="dialog" aria-labelledby="modal-default" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered modal-7" role="document">
+							  <div class="modal-content">
+								  
+								  <div class="modal-header">
+									  <h6 class="modal-title" id="modal-title-default">Share</h6>
+									  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										  <span aria-hidden="true">×</span>
+									  </button>
+								  </div>
+								  
+								  <div class="modal-body">
+									  <div class="row">
+										<div class="col m-2"><i class="fab fa-instagram" style="font-size:24px"></i></div>
+										<div class="col m-2"><i class="fab fa-facebook-f" style="font-size:24px"></i></div>
+										<div class="col m-2"><i class="fab fa-google" style="font-size:24px"></i></div>
+										<div class="col m-2"><i class="fab fa-whatsapp" style="font-size:24px"></i></div>
+									  </div>
+					
+								  </div>
+								  
+								  <div class="modal-footer">
+									  <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button> 
+								  </div>
+								  
+							  </div>
+							</div>
+						</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+
+	</div>
+{% endblock %}

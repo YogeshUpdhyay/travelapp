@@ -1,0 +1,56 @@
+{% extends './base.html' %} 
+
+{% block title %} Index {% endblock title %}
+
+{% block content %}
+	{% include './includes/navigation.html' %}
+	<div class="container mt-8 p-4 bg-light align-items-center">
+
+            <form action="" method="post" enctype="multipart/form-data">
+                <legend>Payment</legend>
+                {{ form.hidden_tag() }} 
+            
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-credit-card"></i></span>
+                    </div>
+                        {{ form.name(placeholder="Card Holder Name", class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-key-25"></i></span>
+                    </div>
+                        {{ form.cvv(placeholder="CVV", class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                    </div>
+                        {{ form.expiry(placeholder="Expiry Date", class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="form-group mb-3">
+                    <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-credit-card"></i></span>
+                    </div>
+                        {{ form.photo(placeholder="ID", class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-4">Submit</button>
+                </div>
+
+            </form>
+
+    </div>
+{% endblock %}
